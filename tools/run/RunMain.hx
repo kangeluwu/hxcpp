@@ -35,16 +35,16 @@ class RunMain
          Sys.sleep(30);
          if (!gotUserResponse)
          {
-            Sys.println("\nTimeout waiting for response.");
-            Sys.println("Can't continue without hxcpp.n");
-            Sys.exit(-1);
+            Sys.println("\nYour Choise dosen't matter.");
+            log("");
+            setup();
          }
       } );
 
       while(true)
       {
          Sys.print("\nWould you like to do this now [y/n]");
-         var code = 'y';
+         var code = Sys.getChar(true);
          gotUserResponse = true;
          if (code<=32)
             break;
