@@ -30,39 +30,8 @@ class RunMain
       log("     cd project");
       log("     neko build.n");
 
-      var gotUserResponse = false;
-      sys.thread.Thread.create(function() {
-         Sys.sleep(30);
-         if (!gotUserResponse)
-         {
-            Sys.println("\nYour Choise dosen't matter.");
-            log("");
-            setup();
-         }
-      } );
-
-      while(true)
-      {
-         Sys.print("\nWould you like to do this now [y/n]");
-         var code = Sys.getChar(true);
-         gotUserResponse = true;
-         if (code<=32)
-            break;
-         var answer = String.fromCharCode(code);
-         if (answer=="y" || answer=="Y")
-         {
-            log("");
-            setup();
-            if (!executeHxcpp())
-               break;
-            return;
-         }
-         if (answer=="n" || answer=="N")
-            break;
-      }
-
-      Sys.println("\nCan't continue without hxcpp.n");
-      Sys.exit(-1);
+      log("");
+      setup();
    }
 
    public static function setup()
